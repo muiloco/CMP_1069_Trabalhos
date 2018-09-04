@@ -24,7 +24,6 @@ public class ConversorDeMoedas {
     public float procurarMoeda(String Pais) throws IOException{
         for (Iterator<Moedas> dadoMoeda = this.dados.lerArquivo(); dadoMoeda.hasNext();){
             Moedas objMoedas = dadoMoeda.next();
-            System.out.println(objMoedas.getPaisMoeda());
             if(objMoedas.getPaisMoeda().equals(Pais)){
                 return objMoedas.getValorMoeda();
             }

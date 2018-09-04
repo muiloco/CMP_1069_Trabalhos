@@ -26,6 +26,7 @@ public class ConversorWindow extends javax.swing.JFrame {
     
     private void imprimeResultado(float metodo)
     {
+        jTextFieldResultado.setText(" ");
         String resultado = String.valueOf(metodo);
         jTextFieldResultado.setText(resultado);
     }

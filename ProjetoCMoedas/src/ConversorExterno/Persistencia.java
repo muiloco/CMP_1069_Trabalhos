@@ -24,7 +24,7 @@ public class Persistencia {
     //metodos
     public Iterator<Moedas> lerArquivo() throws FileNotFoundException, IOException
     {
-        String url = "C:\\Users\\Pichau\\Desktop\\Coisa faculdade\\TCS\\ProjetoCMoedas\\moedas.txt";
+        String url = "/home/puc/Área de Trabalho/CMP_1069_Trabalhos/ProjetoCMoedas/moedas.txt";
         List<Moedas> listaMoedas = new ArrayList<>();
         FileReader arquivo = new FileReader(url);
         BufferedReader arquivoLer = new BufferedReader(arquivo);
