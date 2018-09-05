@@ -38,5 +38,25 @@ public class ConversorAdapter extends InterfaceConversor{
         }
         return 0;
     }
+
+    @Override
+    public float converterParaLibra(float valor) {
+        try {
+            return this.conversor.converterRealParaOutraMoeda("RU", valor);
+        } catch (IOException ex) {
+            Logger.getLogger(ConversorAdapter.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
+
+    @Override
+    public float converterParaIene(float valor) {
+        try {
+            return this.conversor.converterRealParaOutraMoeda("JAP", valor);
+        } catch (IOException ex) {
+            Logger.getLogger(ConversorAdapter.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
     
 }

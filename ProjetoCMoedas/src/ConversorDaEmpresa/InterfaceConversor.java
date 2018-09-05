@@ -13,5 +13,7 @@ public abstract class InterfaceConversor {
     //metodos
     public abstract float converteParaDolar(float valor);
     public abstract float converterParaEuro(float valor);
+    public abstract float converterParaLibra(float valor);
+    public abstract float converterParaIene(float valor);
     
 }

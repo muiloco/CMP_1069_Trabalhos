@@ -7,6 +7,7 @@ package Window;
 
 import ConversorDaEmpresa.ConversorAdapter;
 import ConversorDaEmpresa.InterfaceConversor;
+import java.text.DecimalFormat;
 
 /**
  *
@@ -19,18 +20,27 @@ public class ConversorWindow extends javax.swing.JFrame {
      */
     public ConversorWindow() {
         initComponents();
-        
+
     }
-    
+
     InterfaceConversor converte = new ConversorAdapter();
-    
-    private void imprimeResultado(float metodo)
-    {
-        jTextFieldResultado.setText(" ");
-        String resultado = String.valueOf(metodo);
-        jTextFieldResultado.setText(resultado);
+    DecimalFormat df = new DecimalFormat("#.00");
+
+    private void imprimeResultado(float valor) {
+        limpaLabel();
+        jTextFieldDolar.setText(this.df.format(this.converte.converteParaDolar(valor)));
+        jTextFieldEuro.setText(this.df.format(this.converte.converterParaEuro(valor)));
+        jTextFieldLibra.setText(this.df.format(this.converte.converterParaLibra(valor)));
+        jTextFieldIene.setText(this.df.format(this.converte.converterParaIene(valor)));
     }
-    
+
+    private void limpaLabel() {
+        jTextFieldDolar.setText(" ");
+        jTextFieldEuro.setText(" ");
+        jTextFieldLibra.setText(" ");
+        jTextFieldIene.setText(" ");
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,38 +51,108 @@ public class ConversorWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jButtonConverterParaDolar = new javax.swing.JButton();
-        jButtonConverterParaEuro = new javax.swing.JButton();
+        jButtonConverterMoedas = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jTextFieldResultado = new javax.swing.JTextField();
         jTextFieldValor = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jTextFieldDolar = new javax.swing.JTextField();
+        jTextFieldEuro = new javax.swing.JTextField();
+        jTextFieldLibra = new javax.swing.JTextField();
+        jTextFieldIene = new javax.swing.JTextField();
+        jButtonLimpar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Conversor Padrão");
 
         jLabel1.setText("Valor em R$:");
 
-        jLabel2.setText("Resultado da Conversão:");
-
-        jButtonConverterParaDolar.setText("Converter para Dolar $");
-        jButtonConverterParaDolar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonConverterMoedas.setText("Converter");
+        jButtonConverterMoedas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonConverterParaDolarActionPerformed(evt);
-            }
-        });
-
-        jButtonConverterParaEuro.setText("Converter para Euro €");
-        jButtonConverterParaEuro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonConverterParaEuroActionPerformed(evt);
+                jButtonConverterMoedasActionPerformed(evt);
             }
         });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Conversor Padrão");
 
-        jTextFieldResultado.setEditable(false);
+        jTextFieldValor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldValorActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Dolar $:");
+
+        jLabel5.setText("Euro €:");
+
+        jLabel6.setText("Libra £:");
+
+        jLabel7.setText("Iene ¥:");
+
+        jTextFieldDolar.setEditable(false);
+
+        jTextFieldEuro.setEditable(false);
+
+        jTextFieldLibra.setEditable(false);
+
+        jTextFieldIene.setEditable(false);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldDolar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel7))
+                        .addGap(4, 4, 4)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldIene)
+                            .addComponent(jTextFieldLibra)
+                            .addComponent(jTextFieldEuro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jTextFieldDolar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jTextFieldEuro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jTextFieldLibra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jTextFieldIene, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        jButtonLimpar.setText("Limpar");
+        jButtonLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLimparActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -81,62 +161,59 @@ public class ConversorWindow extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
+                        .addGap(82, 82, 82)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                        .addComponent(jButtonLimpar))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jTextFieldResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButtonConverterParaEuro))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(jTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(77, 77, 77)
-                                        .addComponent(jButtonConverterParaDolar)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 3, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addComponent(jLabel3)))
+                                .addGap(99, 99, 99)
+                                .addComponent(jLabel3))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonConverterMoedas)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel3)
-                .addGap(21, 21, 21)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonConverterParaDolar))
-                .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(jLabel3)
+                        .addGap(17, 17, 17)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonConverterMoedas))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextFieldResultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButtonConverterParaEuro))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 7, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButtonLimpar)))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonConverterParaDolarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConverterParaDolarActionPerformed
-        float valor = Float.parseFloat(jTextFieldValor.getText());
-        imprimeResultado(this.converte.converteParaDolar(valor));
-    }//GEN-LAST:event_jButtonConverterParaDolarActionPerformed
+    private void jButtonConverterMoedasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConverterMoedasActionPerformed
+        imprimeResultado(Float.parseFloat(jTextFieldValor.getText()));
+    }//GEN-LAST:event_jButtonConverterMoedasActionPerformed
 
-    private void jButtonConverterParaEuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConverterParaEuroActionPerformed
-        float valor = Float.parseFloat(jTextFieldValor.getText());
-        imprimeResultado(this.converte.converterParaEuro(valor));
-    }//GEN-LAST:event_jButtonConverterParaEuroActionPerformed
+    private void jTextFieldValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldValorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldValorActionPerformed
+
+    private void jButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparActionPerformed
+        limpaLabel();        
+    }//GEN-LAST:event_jButtonLimparActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,12 +251,19 @@ public class ConversorWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonConverterParaDolar;
-    private javax.swing.JButton jButtonConverterParaEuro;
+    private javax.swing.JButton jButtonConverterMoedas;
+    private javax.swing.JButton jButtonLimpar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextFieldResultado;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextFieldDolar;
+    private javax.swing.JTextField jTextFieldEuro;
+    private javax.swing.JTextField jTextFieldIene;
+    private javax.swing.JTextField jTextFieldLibra;
     private javax.swing.JTextField jTextFieldValor;
     // End of variables declaration//GEN-END:variables
 }
