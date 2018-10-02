@@ -16,10 +16,10 @@ public class Main {
      */
     public static void main(String[] args) {
         Computador computador = new ComputadorAnubis();
-        System.out.println(computador.descricaoComputador()+"\n"+"Valor: R$ "+computador.getValor());
+        System.out.println(computador.descricao()+"\n"+"Valor: R$ "+computador.getValor());
         
         computador = new ComputadorAddWaterCooler(computador);
-        System.out.println(computador.descricaoComputador()+"\n"+"Valor: R$ "+computador.getValor());
+        System.out.println(computador.descricao()+"\n"+"Valor: R$ "+computador.getValor());
         InterfaceGrafica.main(null);
     }
     

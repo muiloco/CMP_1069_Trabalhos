@@ -16,7 +16,7 @@ public class ComputadorSavage extends Computador{
     }
 
     @Override
-    public String descricaoComputador() {
+    public String descricao() {
         Descricao = "Nome: "+ "Computador Gamer Savage"+"\n";
         Descricao+= "Gabinete: "+"Elysium G503X"+"\n";
         Descricao+= "Placa Mãe: "+"H110M DDR4"+"\n";

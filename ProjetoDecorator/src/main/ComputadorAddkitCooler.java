@@ -17,7 +17,7 @@ public class ComputadorAddkitCooler extends ComputadorDecorator{
     }
     
     @Override
-    public String descricaoComputador() {
+    public String descricao() {
         Descricao = "Nome: " + "Kit Ventoinha + Fita LED Alseye SoonCool 2x120mm Rainbow RGB Com Controle";
         return Descricao;
     }

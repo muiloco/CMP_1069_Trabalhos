@@ -15,7 +15,7 @@ public class ComputadorAnubis extends Computador{
         Valor = 3658.60;
     }
     @Override
-    public String descricaoComputador() {
+    public String descricao() {
         Descricao = "Nome: "+ "Computador Gamer Anubis"+"\n";
         Descricao+= "Gabinete: "+"Pichau AeroCool Si-5100"+"\n";
         Descricao+= "Placa Mãe: "+"H110M DDR4"+"\n";

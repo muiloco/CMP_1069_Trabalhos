@@ -17,7 +17,7 @@ public class ComputadorAddWaterCooler extends ComputadorDecorator {
     }
 
     @Override
-    public String descricaoComputador() {
+    public String descricao() {
         Descricao = "Nome: " + "Water Cooler GamerStorm by DeepCool Captain 240 EX WHITE RGB";
         return Descricao;
     }

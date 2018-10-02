@@ -13,7 +13,7 @@ public abstract class Computador {
     String Descricao;
     double Valor;
 
-    public abstract String descricaoComputador();
+    public abstract String descricao();
 
     public double getValor() {
         return Valor;

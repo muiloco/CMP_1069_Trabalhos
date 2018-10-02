@@ -16,7 +16,7 @@ public class ComputadorDonkor extends Computador{
     }
 
     @Override
-    public String descricaoComputador() {
+    public String descricao() {
         Descricao = "Nome: "+ "Computador Gamer Donkor"+"\n";
         Descricao+= "Gabinete: "+"AeroCool AERO 500 Black Edition Window"+"\n";
         Descricao+= "Placa Mãe: "+"78LMT-S2"+"\n";
