@@ -11,6 +11,8 @@ package main;
  */
 public class InterfaceGrafica extends javax.swing.JFrame {
 
+    Computador comp = null;
+
     /**
      * Creates new form InterfaceGrafica
      */
@@ -18,6 +20,15 @@ public class InterfaceGrafica extends javax.swing.JFrame {
         initComponents();
     }
 
+    public void limpar()
+    {
+        jTextAreaPedidoFechado.setText(" ");
+        jTextAreaDescComputador.setText(" ");
+        jComboBoxAdicionais.setSelectedIndex(0);
+        jComboBoxArmazenamento.setSelectedIndex(0);
+        jComboBoxComputadores.setSelectedIndex(0);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,18 +44,19 @@ public class InterfaceGrafica extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jComboBoxAdicionais = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextAreaDescAdicionais = new javax.swing.JTextArea();
-        jTextFieldValorTotal = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jButtonApagarComputador = new javax.swing.JButton();
-        jButtonApagarAdicionais = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jComboBoxArmazenamento = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextAreaPedidoFechado = new javax.swing.JTextArea();
+        jLabel7 = new javax.swing.JLabel();
+        jButtonLimparPedido = new javax.swing.JButton();
+        jButtonGerarPedido = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jComboBoxComputadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Computador Anúbis", "Computador Donkor", "Computador Savage" }));
+        jComboBoxComputadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Computador Anúbis - R$ 3658.60", "Computador Donkor - R$ 2742.26", "Computador Savage - R$ 3630.80" }));
         jComboBoxComputadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxComputadoresActionPerformed(evt);
@@ -58,126 +70,166 @@ public class InterfaceGrafica extends javax.swing.JFrame {
 
         jLabel1.setText("Descrição o Computador:");
 
-        jComboBoxAdicionais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Water Cooler", "Kit de Fans RGB" }));
-
-        jLabel2.setText("Descrição do Adicional:");
-
-        jTextAreaDescAdicionais.setEditable(false);
-        jTextAreaDescAdicionais.setColumns(20);
-        jTextAreaDescAdicionais.setRows(5);
-        jScrollPane2.setViewportView(jTextAreaDescAdicionais);
-
-        jTextFieldValorTotal.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxAdicionais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Water Cooler + R$ 429.00", "Kit de Fans RGB + R$ 129.00" }));
+        jComboBoxAdicionais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldValorTotalActionPerformed(evt);
+                jComboBoxAdicionaisActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Valor Total: R$");
-
-        jButtonApagarComputador.setText("Apagar Escolha de PC");
-
-        jButtonApagarAdicionais.setText("Apagar Itens Adicionais");
-        jButtonApagarAdicionais.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonApagarAdicionaisActionPerformed(evt);
-            }
-        });
+        jLabel2.setText("Refrigeração:");
 
         jLabel4.setText("Escolha de Computadores:");
 
         jLabel5.setText("Escolhas de Adicionais:");
+
+        jLabel6.setText("Armazenamento:");
+
+        jComboBoxArmazenamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "HD 1TB + R$ 256.25", "SSD 500GB + R$ 450.99" }));
+
+        jTextAreaPedidoFechado.setEditable(false);
+        jTextAreaPedidoFechado.setColumns(20);
+        jTextAreaPedidoFechado.setRows(5);
+        jScrollPane2.setViewportView(jTextAreaPedidoFechado);
+
+        jLabel7.setText("Descrição do Pedido:");
+
+        jButtonLimparPedido.setText("Novo Pedido");
+        jButtonLimparPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLimparPedidoActionPerformed(evt);
+            }
+        });
+
+        jButtonGerarPedido.setText("Gerar Pedido");
+        jButtonGerarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGerarPedidoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBoxComputadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jComboBoxAdicionais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonApagarAdicionais, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonApagarComputador, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel1)
+                            .addComponent(jComboBoxComputadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel6))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jComboBoxArmazenamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBoxAdicionais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(46, 46, 46))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jButtonGerarPedido)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonLimparPedido)))
+                        .addGap(24, 24, 24))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
+                .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBoxComputadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxAdicionais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
+                    .addComponent(jLabel2)
+                    .addComponent(jComboBoxAdicionais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(jComboBoxArmazenamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonApagarComputador)
-                    .addComponent(jButtonApagarAdicionais))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextFieldValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18))
+                    .addComponent(jButtonLimparPedido)
+                    .addComponent(jButtonGerarPedido)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldValorTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldValorTotalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldValorTotalActionPerformed
-
     private void jComboBoxComputadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxComputadoresActionPerformed
        int indice = jComboBoxComputadores.getSelectedIndex();
-       Computador comp;
        switch (indice){
-           case 0:
+           case 1:
                comp = new ComputadorAnubis();
                jTextAreaDescComputador.setText(comp.descricao());
                break;
-           case 1:
+           case 2:
                comp = new ComputadorDonkor();
                jTextAreaDescComputador.setText(comp.descricao());
                break;
-           case 2:
+           case 3:
                comp = new ComputadorSavage();
                jTextAreaDescComputador.setText(comp.descricao());
                break;
        }
     }//GEN-LAST:event_jComboBoxComputadoresActionPerformed
 
-    private void jButtonApagarAdicionaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonApagarAdicionaisActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonApagarAdicionaisActionPerformed
+    private void jComboBoxAdicionaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxAdicionaisActionPerformed
+
+    }//GEN-LAST:event_jComboBoxAdicionaisActionPerformed
+
+    private void jButtonGerarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGerarPedidoActionPerformed
+        int indiceA = jComboBoxAdicionais.getSelectedIndex();
+        switch (indiceA){
+            case 1:
+                comp = new ComputadorAddWaterCooler(comp);
+                break;
+            case 2:
+                comp = new ComputadorAddkitCooler(comp);
+                break;
+        }
+        int indiceB = jComboBoxArmazenamento.getSelectedIndex();
+        switch(indiceB){
+            case 1:
+                comp = new ComputadorAddHd(comp);
+                break;
+            case 2:
+                comp = new ComputadorAddSsd(comp);
+                break;
+        }
+        String geral = comp.descricao() + "\n" + "Valor Final: R$ " + String.valueOf(comp.getValor());
+        jTextAreaPedidoFechado.setText(geral);
+    }//GEN-LAST:event_jButtonGerarPedidoActionPerformed
+
+    private void jButtonLimparPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparPedidoActionPerformed
+        this.limpar();
+    }//GEN-LAST:event_jButtonLimparPedidoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,19 +267,20 @@ public class InterfaceGrafica extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonApagarAdicionais;
-    private javax.swing.JButton jButtonApagarComputador;
+    private javax.swing.JButton jButtonGerarPedido;
+    private javax.swing.JButton jButtonLimparPedido;
     private javax.swing.JComboBox<String> jComboBoxAdicionais;
+    private javax.swing.JComboBox<String> jComboBoxArmazenamento;
     private javax.swing.JComboBox<String> jComboBoxComputadores;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextAreaDescAdicionais;
     private javax.swing.JTextArea jTextAreaDescComputador;
-    private javax.swing.JTextField jTextFieldValorTotal;
+    private javax.swing.JTextArea jTextAreaPedidoFechado;
     // End of variables declaration//GEN-END:variables
 }

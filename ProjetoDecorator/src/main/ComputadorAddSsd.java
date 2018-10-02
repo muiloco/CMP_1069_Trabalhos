@@ -9,13 +9,12 @@ package main;
  *
  * @author Fernando R
  */
-public class Main {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        InterfaceGrafica.main(null);
+public class ComputadorAddSsd extends ComputadorDecorator{
+    
+    public ComputadorAddSsd(Computador computador) {
+        super(computador);
+        Descricao = "SSD SATA 500GB Kingston";
+        Valor = 450.99;
     }
     
 }

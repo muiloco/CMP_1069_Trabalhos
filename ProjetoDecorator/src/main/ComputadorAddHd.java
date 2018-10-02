@@ -9,13 +9,12 @@ package main;
  *
  * @author Fernando R
  */
-public class Main {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        InterfaceGrafica.main(null);
+public class ComputadorAddHd extends ComputadorDecorator{
+    
+    public ComputadorAddHd(Computador computador) {
+        super(computador);
+        Descricao = "HD SATA 1TB Toshiba";
+        Valor = 256.25;
     }
     
 }

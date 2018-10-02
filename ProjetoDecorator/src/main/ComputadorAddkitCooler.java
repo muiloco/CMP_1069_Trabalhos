@@ -13,17 +13,18 @@ public class ComputadorAddkitCooler extends ComputadorDecorator{
     
     public ComputadorAddkitCooler(Computador computador) {
         super(computador);
+        Descricao = "Nome: " + "Kit Ventoinha + Fita LED Alseye SoonCool 2x120mm Rainbow RGB Com Controle";
         Valor = 129;
     }
     
-    @Override
-    public String descricao() {
-        Descricao = "Nome: " + "Kit Ventoinha + Fita LED Alseye SoonCool 2x120mm Rainbow RGB Com Controle";
-        return Descricao;
-    }
-
-    @Override
-    public double getValor() {
-        return Valor;
-    }
+//    @Override
+//    public String descricao() {
+//        Descricao = "Nome: " + "Kit Ventoinha + Fita LED Alseye SoonCool 2x120mm Rainbow RGB Com Controle";
+//        return Descricao;
+//    }
+//
+//    @Override
+//    public double getValor() {
+//        return Valor;
+//    }
 }

@@ -18,7 +18,7 @@ public abstract class ComputadorDecorator extends Computador{
 
     @Override
     public String descricao() {
-        return this.computador.descricao() + Descricao;
+        return this.computador.descricao() + "\n" + "Adicional: " + Descricao;
     }
     
     @Override
