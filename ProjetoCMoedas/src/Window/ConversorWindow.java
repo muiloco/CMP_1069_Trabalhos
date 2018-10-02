@@ -24,7 +24,7 @@ public class ConversorWindow extends javax.swing.JFrame {
     }
 
     InterfaceConversor converte = new ConversorAdapter();
-    DecimalFormat df = new DecimalFormat("#.00");
+    DecimalFormat df = new DecimalFormat("0.00");
 
     private void imprimeResultado(float valor) {
         limpaLabel();
