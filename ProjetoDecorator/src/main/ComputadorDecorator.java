@@ -14,47 +14,15 @@ public abstract class ComputadorDecorator extends Computador{
 
     public ComputadorDecorator(Computador computador) {
         this.computador = computador;
+    } 
+
+    @Override
+    public String descricaoComputador() {
+        return this.computador.descricaoComputador() + Descricao;
     }
     
     @Override
-    public String getNome() {
-        return this.computador.getNome() ;
+    public double getValor() {
+        return this.computador.getValor() + Valor;
     }
-
-    @Override
-    public String getGabinete() {
-        return this.computador.getGabinete() + " + " + Gabinete;
-    }
-
-    @Override
-    public String getPlacaMae() {
-        return this.computador.getPlacaMae() + " + " + PlacaMae;
-    }
-
-    @Override
-    public String getMemoriaRam() {
-        return this.computador.getMemoriaRam() + " + " + MemoriaRam;
-    }
-
-    @Override
-    public String getPlacaGrafica() {
-        return this.computador.getPlacaGrafica() + " + " + PlacaGrafica;
-    }
-
-    @Override
-    public String getProcessador() {
-        return this.computador.getProcessador() + " + " + Processador;
-    }
-
-    @Override
-    public String getFonte() {
-        return this.computador.getFonte()+ " + " + Fonte;
-    }
-
-    @Override
-    public String getValor() {
-        return this.computador.getValor() + " + " + Valor;
-    }
-    
-    
 }

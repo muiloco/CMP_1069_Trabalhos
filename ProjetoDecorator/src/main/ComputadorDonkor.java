@@ -9,18 +9,27 @@ package main;
  *
  * @author Fernando R
  */
-public class ComputadorDonkor extends ComputadorDecorator{
+public class ComputadorDonkor extends Computador{
     
-    public ComputadorDonkor(Computador computador) {
-        super(computador);
-        Nome = "Computador Gamer Donkor";
-        Gabinete = "AeroCool AERO 500 Black Edition Window";
-        PlacaMae = "78LMT-S2";
-        MemoriaRam = "Crucial 8GB DDR3 1600Mhz";
-        PlacaGrafica = "GeForce GTX1050 2GB";
-        Processador = "AMD FX-6300 3,5GHz";
-        Fonte = "Aero Kcas 400W 80 Plus White";
-        Valor = "R$ 2.742,26";
+    public ComputadorDonkor() {
+        Valor = 2742.26;
+    }
+
+    @Override
+    public String descricaoComputador() {
+        Descricao = "Nome: "+ "Computador Gamer Donkor"+"\n";
+        Descricao+= "Gabinete: "+"AeroCool AERO 500 Black Edition Window"+"\n";
+        Descricao+= "Placa Mãe: "+"78LMT-S2"+"\n";
+        Descricao+= "MemoriaRam: "+"Crucial 8GB DDR3 1600Mhz"+"\n";
+        Descricao+= "PlacaGrafica: "+"GeForce GTX1050 2GB"+"\n";
+        Descricao+= "Processador: "+"AMD FX-6300 3,5GHz"+"\n";
+        Descricao+= "Fonte: "+"Aero Kcas 400W 80 Plus White";
+        return Descricao;
+    }
+    
+    @Override
+    public double getValor() {
+        return Valor;
     }
     
 }

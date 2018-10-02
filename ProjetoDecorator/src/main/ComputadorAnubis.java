@@ -9,18 +9,26 @@ package main;
  *
  * @author Fernando R
  */
-public class ComputadorAnubis extends ComputadorDecorator{
-    
-    public ComputadorAnubis(Computador computador) {
-        super(computador);
-        Nome = "Computador Gamer Anubis";
-        Gabinete = "Pichau AeroCool Si-5100";
-        PlacaMae = "H110M DDR4";
-        MemoriaRam = "Crucial 8GB DDR4 2400Mhz";
-        PlacaGrafica = "Galax GeForce GTX1060 6GB OC";
-        Processador = "Intel Core i5-7400";
-        Fonte = "Aero Kcas 500W 80 Plus White";
-        Valor = "R$ 3.803,64";
+public class ComputadorAnubis extends Computador{
+
+    public ComputadorAnubis() {
+        Valor = 3658.60;
+    }
+    @Override
+    public String descricaoComputador() {
+        Descricao = "Nome: "+ "Computador Gamer Anubis"+"\n";
+        Descricao+= "Gabinete: "+"Pichau AeroCool Si-5100"+"\n";
+        Descricao+= "Placa Mãe: "+"H110M DDR4"+"\n";
+        Descricao+= "MemoriaRam: "+"Crucial 8GB DDR4 2400Mhz"+"\n";
+        Descricao+= "PlacaGrafica: "+"Galax GeForce GTX1060 6GB OC"+"\n";
+        Descricao+= "Processador: "+"Intel Core i5-7400"+"\n";
+        Descricao+= "Fonte: "+"Aero Kcas 500W 80 Plus White";
+        return Descricao;
+    }
+
+    @Override
+    public double getValor() {
+        return Valor;
     }
     
 }

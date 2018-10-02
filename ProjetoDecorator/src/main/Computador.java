@@ -10,45 +10,12 @@ package main;
  * @author Fernando R
  */
 public abstract class Computador {
-    String Nome;
-    String Gabinete;
-    String PlacaMae;
-    String MemoriaRam;
-    String PlacaGrafica;
-    String Processador;
-    String Fonte;
-    String Valor;
+    String Descricao;
+    double Valor;
 
-    public String getNome() {
-        return Nome;
-    }
+    public abstract String descricaoComputador();
 
-    public String getGabinete() {
-        return Gabinete;
-    }
-
-    public String getPlacaMae() {
-        return PlacaMae;
-    }
-
-    public String getMemoriaRam() {
-        return MemoriaRam;
-    }
-
-    public String getPlacaGrafica() {
-        return PlacaGrafica;
-    }
-
-    public String getProcessador() {
-        return Processador;
-    }
-
-    public String getFonte() {
-        return Fonte;
-    }
-
-    public String getValor() {
+    public double getValor() {
         return Valor;
     }
-    
 }

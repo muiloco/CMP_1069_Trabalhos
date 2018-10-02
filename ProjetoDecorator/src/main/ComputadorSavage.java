@@ -9,18 +9,27 @@ package main;
  *
  * @author Fernando R
  */
-public class ComputadorSavage extends ComputadorDecorator{
+public class ComputadorSavage extends Computador{
     
-    public ComputadorSavage(Computador computador) {
-        super(computador);
-        Nome = "Computador Gamer Savage";
-        Gabinete = "Elysium G503X";
-        PlacaMae = "H110M DDR4";
-        MemoriaRam = "Crucial 8GB DDR4 2400Mhz";
-        PlacaGrafica = "GeForce GTX 1060 3GB";
-        Processador = "Intel Core i5-7400";
-        Fonte = "Aero Kcas 500W 80 Plus White";
-        Valor = "R$ 3.630,80";
+    public ComputadorSavage() {
+        Valor = 3630.80;
+    }
+
+    @Override
+    public String descricaoComputador() {
+        Descricao = "Nome: "+ "Computador Gamer Savage"+"\n";
+        Descricao+= "Gabinete: "+"Elysium G503X"+"\n";
+        Descricao+= "Placa Mãe: "+"H110M DDR4"+"\n";
+        Descricao+= "MemoriaRam: "+"Crucial 8GB DDR4 2400Mhz"+"\n";
+        Descricao+= "PlacaGrafica: "+"GeForce GTX 1060 3GB"+"\n";
+        Descricao+= "Processador: "+"Intel Core i5-7400"+"\n";
+        Descricao+= "Fonte: "+"Aero Kcas 500W 80 Plus White";
+        return Descricao;
+    }
+    
+    @Override
+    public double getValor() {
+        return Valor;
     }
     
 }
