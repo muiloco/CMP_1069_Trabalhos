@@ -118,9 +118,9 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
-            <StringItem index="0" value=""/>
+            <StringItem index="0" value="none"/>
             <StringItem index="1" value="Computador An&#xfa;bis - R$ 3658.60"/>
-            <StringItem index="2" value="Computador Donkor - R$ 2742.26"/>
+            <StringItem index="2" value="Computador Donkor - R$ 2742.2"/>
             <StringItem index="3" value="Computador Savage - R$ 3630.80"/>
           </StringArray>
         </Property>
@@ -157,7 +157,7 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
-            <StringItem index="0" value=""/>
+            <StringItem index="0" value="none"/>
             <StringItem index="1" value="Water Cooler + R$ 429.00"/>
             <StringItem index="2" value="Kit de Fans RGB + R$ 129.00"/>
           </StringArray>
@@ -194,7 +194,7 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
-            <StringItem index="0" value=""/>
+            <StringItem index="0" value="none"/>
             <StringItem index="1" value="HD 1TB + R$ 256.25"/>
             <StringItem index="2" value="SSD 500GB + R$ 450.99"/>
           </StringArray>

@@ -22,11 +22,11 @@ public class InterfaceGrafica extends javax.swing.JFrame {
 
     public void limpar()
     {
-        jTextAreaPedidoFechado.setText(" ");
-        jTextAreaDescComputador.setText(" ");
         jComboBoxAdicionais.setSelectedIndex(0);
         jComboBoxArmazenamento.setSelectedIndex(0);
         jComboBoxComputadores.setSelectedIndex(0);
+        jTextAreaPedidoFechado.setText(" ");
+        jTextAreaDescComputador.setText(" ");
     }
     
     /**
@@ -56,7 +56,7 @@ public class InterfaceGrafica extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jComboBoxComputadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Computador Anúbis - R$ 3658.60", "Computador Donkor - R$ 2742.26", "Computador Savage - R$ 3630.80" }));
+        jComboBoxComputadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "none", "Computador Anúbis - R$ 3658.60", "Computador Donkor - R$ 2742.2", "Computador Savage - R$ 3630.80" }));
         jComboBoxComputadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxComputadoresActionPerformed(evt);
@@ -70,7 +70,7 @@ public class InterfaceGrafica extends javax.swing.JFrame {
 
         jLabel1.setText("Descrição o Computador:");
 
-        jComboBoxAdicionais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Water Cooler + R$ 429.00", "Kit de Fans RGB + R$ 129.00" }));
+        jComboBoxAdicionais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "none", "Water Cooler + R$ 429.00", "Kit de Fans RGB + R$ 129.00" }));
         jComboBoxAdicionais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxAdicionaisActionPerformed(evt);
@@ -85,7 +85,7 @@ public class InterfaceGrafica extends javax.swing.JFrame {
 
         jLabel6.setText("Armazenamento:");
 
-        jComboBoxArmazenamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "HD 1TB + R$ 256.25", "SSD 500GB + R$ 450.99" }));
+        jComboBoxArmazenamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "none", "HD 1TB + R$ 256.25", "SSD 500GB + R$ 450.99" }));
 
         jTextAreaPedidoFechado.setEditable(false);
         jTextAreaPedidoFechado.setColumns(20);
@@ -183,21 +183,11 @@ public class InterfaceGrafica extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBoxComputadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxComputadoresActionPerformed
-       int indice = jComboBoxComputadores.getSelectedIndex();
-       switch (indice){
-           case 1:
-               comp = new ComputadorAnubis();
-               jTextAreaDescComputador.setText(comp.descricao());
-               break;
-           case 2:
-               comp = new ComputadorDonkor();
-               jTextAreaDescComputador.setText(comp.descricao());
-               break;
-           case 3:
-               comp = new ComputadorSavage();
-               jTextAreaDescComputador.setText(comp.descricao());
-               break;
-       }
+        int indice = jComboBoxComputadores.getSelectedIndex();
+        if (indice > 0) {
+            comp = ComputadorFactory.getComputador(indice);
+            jTextAreaDescComputador.setText(comp.descricao());
+        }
     }//GEN-LAST:event_jComboBoxComputadoresActionPerformed
 
     private void jComboBoxAdicionaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxAdicionaisActionPerformed
@@ -206,25 +196,13 @@ public class InterfaceGrafica extends javax.swing.JFrame {
 
     private void jButtonGerarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGerarPedidoActionPerformed
         int indiceA = jComboBoxAdicionais.getSelectedIndex();
-        switch (indiceA){
-            case 1:
-                comp = new ComputadorAddWaterCooler(comp);
-                break;
-            case 2:
-                comp = new ComputadorAddkitCooler(comp);
-                break;
-        }
         int indiceB = jComboBoxArmazenamento.getSelectedIndex();
-        switch(indiceB){
-            case 1:
-                comp = new ComputadorAddHd(comp);
-                break;
-            case 2:
-                comp = new ComputadorAddSsd(comp);
-                break;
+        if (indiceA > 0 || indiceB > 0) {
+            comp = ComputadorFactory.getAddRefrigeracao(indiceA, comp);
+            comp = ComputadorFactory.getAddArmazenamento(indiceB, comp);
+            String geral = comp.descricao() + "\n" + "Valor Final: R$ " + String.valueOf(comp.getValor());
+            jTextAreaPedidoFechado.setText(geral);
         }
-        String geral = comp.descricao() + "\n" + "Valor Final: R$ " + String.valueOf(comp.getValor());
-        jTextAreaPedidoFechado.setText(geral);
     }//GEN-LAST:event_jButtonGerarPedidoActionPerformed
 
     private void jButtonLimparPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparPedidoActionPerformed
