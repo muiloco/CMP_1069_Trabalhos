@@ -5,18 +5,48 @@
  */
 package fabricas;
 
+import interfaces.Produto;
+import main.FabricaAbs;
+import produtos.Lirio;
+import produtos.Margarida;
+import produtos.Orquidea;
+
 /**
  *
  * @author Fernando R
  */
-public class Flores {
+public class Flores extends FabricaAbs{
 
-    public Flores() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     public Flores() {
+        categoria = "Flores";
+    }
+    
+    @Override
+    public Object[] getListaProdutod() {
+       Object[] lista = {"Lirio","Margarida","Orquidea"};
+       return lista;
     }
 
-    public Flores() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    @Override
+    public Produto getProduto(String item) {
+       if(null == item)
+            return null;
+        else switch (item) {
+             case "Lirio":
+                 return new Lirio();
+             case "Margarida":
+                 return new Margarida();
+             case "Orquidea":
+                 return new Orquidea();
+             default:
+                 return null;
+         }
     }
+    
+    
+
+    
+
+   
     
 }
