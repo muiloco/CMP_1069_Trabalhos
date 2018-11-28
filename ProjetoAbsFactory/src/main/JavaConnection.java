@@ -7,6 +7,8 @@ package main;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,15 +21,27 @@ import javax.swing.JOptionPane;
 public class JavaConnection {
     
    
-    Connection conex = null;
-    public static Connection ConnectDB(){
+    private Connection conex;
+    public boolean ConnectDB(){
         try {
-            Class.forName("org.sqlite.JDBC");
-            Connection conex = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Pichau\\Desktop\\Coisa faculdade\\TCS\\CMP_1069_Trabalhos\\ProjetoAbsFactory\\BancoJardinagem.sqlite");
-            return conex;
-        } catch (Exception e) {
+            this.conex = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Pichau\\Desktop\\Coisa faculdade\\TCS\\CMP_1069_Trabalhos\\ProjetoAbsFactory\\BancoJardinagem.sqlite"); 
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
+            return false;
+        }
+        System.out.println("Conex!!");
+        return true;
+    }
+    
+    public Statement criarStatement(){
+        try {
+            return this.conex.createStatement();
+        } catch (SQLException e) {
             return null;
         }
+    }
+
+    public Connection getConex() {
+        return conex;
     }
 }
