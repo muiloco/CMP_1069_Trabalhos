@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -17,24 +18,22 @@ import java.util.ArrayList;
  */
 public class Persistencia {
     
-    public static ArrayList carregaDados (String nomeTabela, String categoria)
+    public static Iterator<Produto> carregaDados (String nomeTabela, String categoria)
     {
-        ArrayList<Produto> objetos = new ArrayList<>();
+        ArrayList<Produto> objetos = new ArrayList();
         JavaConnection conex = new JavaConnection();
         boolean ConnectDB = conex.ConnectDB();
         ResultSet resultSet = null;
         Statement statement = null;
         
-       String query = "SELECT * FROM " + nomeTabela;
-       FabricaAbs objFabricaAbs = FabricaAbs.getInstance(categoria); 
-       statement = conex.criarStatement();
-       
+        String query = "SELECT * FROM " + nomeTabela;
+        FabricaAbs objFabricaAbs = FabricaAbs.getInstance(categoria); 
+        statement = conex.criarStatement();
+
         try {
             resultSet = statement.executeQuery(query);
             while(resultSet.next()){
-                Produto objProduto = objFabricaAbs.getProduto(resultSet.getString(2), resultSet.getString(4), resultSet.getFloat(3));
-                objetos.add(objProduto);
-                System.out.println(objProduto.getNome());
+                objetos.add(objFabricaAbs.getProduto(resultSet.getString(2), resultSet.getString(4), resultSet.getFloat(3)));
             }
         } catch (SQLException e) {
             System.out.println("Erro desconhecido");
@@ -47,7 +46,7 @@ public class Persistencia {
             }
         }
         
-        return objetos;
+        return objetos.iterator();
     }
     
 }

@@ -32,11 +32,11 @@ public class ItensJardinagem extends FabricaAbs{
        if(null == nome)
             return null;
         else switch (nome) {
-             case "TerraOrganica":
+             case "Terra Orgânica 10kg":
                  return new TerraOrganica(nome,descricao,valor);
-             case "TerraVegetal":
+             case "Terra Vegetal Biomix - 10kg":
                  return new TerraVegetal(nome,descricao,valor);
-             case "KitJardinagem":
+             case "Jogo para Jardim Azul ":
                  return new KitJardinagem(nome,descricao,valor);
              default:
                  return null;

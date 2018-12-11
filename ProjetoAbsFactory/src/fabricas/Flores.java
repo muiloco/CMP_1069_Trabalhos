@@ -36,7 +36,7 @@ public class Flores extends FabricaAbs{
                  return new Lirio(nome,descricao,valor);
              case "Margarida":
                  return new Margarida(nome,descricao,valor);
-             case "Orquidea":
+             case "Orquidea Portinara":
                  return new Orquidea(nome,descricao,valor);
              default:
                  return null;

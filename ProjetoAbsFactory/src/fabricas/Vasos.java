@@ -23,7 +23,7 @@ public class Vasos extends FabricaAbs{
     
     @Override
     public Object[] getListaProdutod() {
-       Object[] lista = {"TerraOrganica","TerraVegetal","KitJardinagem"};
+       Object[] lista = {"Vaso Barro Tipo Bacia","Vaso Jelling","Vaso De Plástico N°10- Preto"};
        return lista;
     }
 
@@ -32,11 +32,11 @@ public class Vasos extends FabricaAbs{
        if(null == nome)
             return null;
         else switch (nome) {
-             case "VasoDeBarro":
+             case "Vaso Barro Tipo Bacia":
                  return new VasoDeBarro(nome,descricao,valor);
-             case "VasoDeCeramica":
+             case "Vaso Jelling":
                  return new VasoDeCeramica(nome,descricao,valor);
-             case "VasoDePlastico":
+             case "Vaso De Plástico N°10- Preto":
                  return new VasoDePlastico(nome,descricao,valor);
              default:
                  return null;
