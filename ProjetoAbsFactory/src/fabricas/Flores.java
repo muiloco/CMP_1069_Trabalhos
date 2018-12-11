@@ -28,16 +28,16 @@ public class Flores extends FabricaAbs{
     }
 
     @Override
-    public Produto getProduto(String item) {
-       if(null == item)
+    public Produto getProduto(String nome, String descricao, float valor) {
+       if(null == nome)
             return null;
-        else switch (item) {
+        else switch (nome) {
              case "Lirio":
-                 return new Lirio();
+                 return new Lirio(nome,descricao,valor);
              case "Margarida":
-                 return new Margarida();
+                 return new Margarida(nome,descricao,valor);
              case "Orquidea":
-                 return new Orquidea();
+                 return new Orquidea(nome,descricao,valor);
              default:
                  return null;
          }

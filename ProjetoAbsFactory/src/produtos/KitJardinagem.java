@@ -12,10 +12,19 @@ import interfaces.Produto;
  * @author Fernando R
  */
 public class KitJardinagem implements Produto{
+
     
     String nome;
     String descricao;
     float valor;
+    
+    public KitJardinagem(String nome, String descricao, float valor) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.valor = valor;
+    }
+    
+   
 
     @Override
     public String getNome() {

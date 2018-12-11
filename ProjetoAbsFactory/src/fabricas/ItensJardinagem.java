@@ -28,16 +28,16 @@ public class ItensJardinagem extends FabricaAbs{
     }
 
     @Override
-    public Produto getProduto(String item) {
-       if(null == item)
+    public Produto getProduto(String nome, String descricao, float valor) {
+       if(null == nome)
             return null;
-        else switch (item) {
+        else switch (nome) {
              case "TerraOrganica":
-                 return new TerraOrganica();
+                 return new TerraOrganica(nome,descricao,valor);
              case "TerraVegetal":
-                 return new TerraVegetal();
+                 return new TerraVegetal(nome,descricao,valor);
              case "KitJardinagem":
-                 return new KitJardinagem();
+                 return new KitJardinagem(nome,descricao,valor);
              default:
                  return null;
          }

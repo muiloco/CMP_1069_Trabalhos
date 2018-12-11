@@ -17,6 +17,12 @@ public class Lirio implements Produto{
     String descricao;
     float valor;
 
+    public Lirio(String nome, String descricao, float valor) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.valor = valor;
+    }
+
     @Override
     public String getNome() {
         return nome;

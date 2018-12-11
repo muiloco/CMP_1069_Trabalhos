@@ -28,18 +28,22 @@ public abstract class FabricaAbs {
     }
     
     public abstract Object[] getListaProdutod();
-    public abstract Produto getProduto(String item);
+    public abstract Produto getProduto(String nome, String descricao, float valor);
     public static FabricaAbs getInstance(String categoria){
-        if(categoria == null)
+        if(null == categoria)
             return null;
-        else if(categoria.equals("Flores"))
-            return new Flores();
-        else if(categoria.equals("Vasos"))
-            return new Vasos();
-        else if(categoria.equals("Itens de Jardinagem"))
-            return new ItensJardinagem();
-        else 
-            return null;
+        else switch (categoria) {
+            case "Flores":
+                return new Flores();
+            case "Vasos":
+                return new Vasos();
+            case "Itens de Jardinagem":
+                return new ItensJardinagem();
+            default:
+                return null;
+        }
     }
+
+    
     
 }

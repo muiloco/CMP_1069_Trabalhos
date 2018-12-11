@@ -28,16 +28,16 @@ public class Vasos extends FabricaAbs{
     }
 
     @Override
-    public Produto getProduto(String item) {
-       if(null == item)
+    public Produto getProduto(String nome, String descricao, float valor) {
+       if(null == nome)
             return null;
-        else switch (item) {
+        else switch (nome) {
              case "VasoDeBarro":
-                 return new VasoDeBarro();
+                 return new VasoDeBarro(nome,descricao,valor);
              case "VasoDeCeramica":
-                 return new VasoDeCeramica();
+                 return new VasoDeCeramica(nome,descricao,valor);
              case "VasoDePlastico":
-                 return new VasoDePlastico();
+                 return new VasoDePlastico(nome,descricao,valor);
              default:
                  return null;
          }

@@ -17,6 +17,12 @@ public class Orquidea implements Produto{
     String descricao;
     float valor;
 
+     public Orquidea(String nome, String descricao, float valor) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.valor = valor;
+    }
+    
     @Override
     public String getNome() {
         return nome;

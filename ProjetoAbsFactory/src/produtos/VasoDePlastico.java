@@ -17,6 +17,13 @@ public class VasoDePlastico implements Produto{
     String descricao;
     float valor;
 
+    public VasoDePlastico(String nome, String descricao, float valor) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.valor = valor;
+    }
+    
+
     @Override
     public String getNome() {
         return nome;

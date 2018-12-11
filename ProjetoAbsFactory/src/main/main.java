@@ -5,10 +5,8 @@
  */
 package main;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import interfaces.Produto;
+import java.util.ArrayList;
 
 /**
  *
@@ -21,32 +19,43 @@ public class main {
      */
     public static void main(String[] args) {
         //Connection ConnectDB = JavaConnection.ConnectDB();
-        JavaConnection conex = new JavaConnection();
-        boolean ConnectDB = conex.ConnectDB();
-        
-        ResultSet resultSet = null;
-        Statement statement = null;
-        
-        String query = "SELECT * FROM TableFlores";
-        
-       statement = conex.criarStatement();
-        try {
-            resultSet = statement.executeQuery(query);
-            while(resultSet.next()){
-                System.out.println("Dados das Flores:");
-                System.out.println(resultSet.getString("FlorNome"));
-            }
-        } catch (SQLException e) {
-            System.out.println("Erro desconhecido");
-        } finally {
-            try {
-                resultSet.close();
-                statement.close();
-            } catch (SQLException ex) {
-                System.out.println("Erro desconhecido");
-            }
-        }
-        
+//        JavaConnection conex = new JavaConnection();
+//        boolean ConnectDB = conex.ConnectDB();
+//        
+//        ResultSet resultSet = null;
+//        Statement statement = null;
+//        
+//        String query = "SELECT * FROM TableFlores";
+//        
+//       statement = conex.criarStatement();
+//        try {
+//            resultSet = statement.executeQuery(query);
+//            while(resultSet.next()){
+//                System.out.println("Dados das Flores:");
+//                System.out.println(resultSet.getString("FlorNome"));
+//            }
+//        } catch (SQLException e) {
+//            System.out.println("Erro desconhecido");
+//        } finally {
+//            try {
+//                resultSet.close();
+//                statement.close();
+//            } catch (SQLException ex) {
+//                System.out.println("Erro desconhecido");
+//            }
+//        }
+//        FabricaAbs teste = null;
+
+         ArrayList<Produto> test = Persistencia.carregaDados("TableFlores", "Flores");
+//          Produto teste;
+//          int cont =0;
+//          int t= test.size();
+//          while(cont <= t){
+//              teste = test.get(cont);
+//              System.out.println(teste.getNome());
+//              cont++;
+//          }
+      
     }
     
 }
