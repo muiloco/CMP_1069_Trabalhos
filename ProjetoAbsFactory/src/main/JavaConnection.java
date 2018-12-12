@@ -24,7 +24,7 @@ public class JavaConnection {
     private Connection conex;
     public boolean ConnectDB(){
         try {
-            this.conex = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Php003\\Desktop\\CMP_1069_Trabalhos\\ProjetoAbsFactory\\BancoJardinagem.sqlite"); 
+            this.conex = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Pichau\\Desktop\\Coisa faculdade\\TCS\\CMP_1069_Trabalhos\\ProjetoAbsFactory\\BancoJardinagem.sqlite"); 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
             return false;

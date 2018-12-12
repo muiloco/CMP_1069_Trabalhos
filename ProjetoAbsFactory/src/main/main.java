@@ -5,6 +5,7 @@
  */
 package main;
 
+import InterfaceGrafica.TelaLoja;
 import fabricas.Flores;
 import interfaces.Produto;
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class main {
               System.out.println(x.getDescricao());
               System.out.println(x.getPreco());
           }
+          TelaLoja.main(null);
       
     }
     
