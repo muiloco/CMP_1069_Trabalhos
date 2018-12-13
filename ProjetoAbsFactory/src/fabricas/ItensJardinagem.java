@@ -18,12 +18,12 @@ import produtos.TerraVegetal;
 public class ItensJardinagem extends FabricaAbs{
 
      public ItensJardinagem() {
-        categoria = "ItensJardinagem";
+        categoria = "Itens de Jardinagem";
     }
     
     @Override
     public Object[] getListaProdutod() {
-       Object[] lista = {"TerraOrganica","TerraVegetal","KitJardinagem"};
+       Object[] lista = {"Terra Orgânica 10kg","Terra Vegetal Biomix - 10kg","Jogo para Jardim Azul"};
        return lista;
     }
 
@@ -36,7 +36,7 @@ public class ItensJardinagem extends FabricaAbs{
                  return new TerraOrganica(nome,descricao,valor);
              case "Terra Vegetal Biomix - 10kg":
                  return new TerraVegetal(nome,descricao,valor);
-             case "Jogo para Jardim Azul ":
+             case "Jogo para Jardim Azul":
                  return new KitJardinagem(nome,descricao,valor);
              default:
                  return null;
