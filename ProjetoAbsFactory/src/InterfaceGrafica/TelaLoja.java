@@ -5,6 +5,7 @@
  */
 package InterfaceGrafica;
 
+import Imagens.Imagens;
 import interfaces.Produto;
 import java.util.Iterator;
 import main.FabricaAbs;
@@ -19,6 +20,9 @@ public class TelaLoja extends javax.swing.JFrame {
     /**
      * Creates new form TelaLoja
      */
+    
+    Imagens img = null;
+    
     public TelaLoja() {
         initComponents();
         carregaCombo();
@@ -49,12 +53,16 @@ public class TelaLoja extends javax.swing.JFrame {
         x = dados.next();
         jLabelTitulo1.setText(x.getNome());
         jTextAreaDescrica1.setText(x.getDescricao());
+        jLabelPreço1.setText("Preço: R$ " + String.valueOf(x.getPreco()));
+        //Simg.mudaImagem(x.getNome(), this.jLabelImagem1);
         x = dados.next();
         jLabelTitulo2.setText(x.getNome());
         jTextAreaDescrica2.setText(x.getDescricao());
+        jLabelPreço2.setText("Preço: R$ " + String.valueOf(x.getPreco()));
         x = dados.next();
         jLabelTitulo3.setText(x.getNome());
         jTextAreaDescrica3.setText(x.getDescricao());
+        jLabelPreço3.setText("Preço: R$ " + String.valueOf(x.getPreco()));
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -74,6 +82,8 @@ public class TelaLoja extends javax.swing.JFrame {
         jTextAreaDescrica1 = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
         jLabelTitulo1 = new javax.swing.JLabel();
+        jLabelPreço1 = new javax.swing.JLabel();
+        jLabelImagem1 = new javax.swing.JLabel();
         jPanelItem3 = new javax.swing.JPanel();
         jButtonAdd3 = new javax.swing.JButton();
         jSpinnerQtd3 = new javax.swing.JSpinner();
@@ -82,6 +92,7 @@ public class TelaLoja extends javax.swing.JFrame {
         jTextAreaDescrica3 = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
         jLabelTitulo3 = new javax.swing.JLabel();
+        jLabelPreço3 = new javax.swing.JLabel();
         jPanelItem2 = new javax.swing.JPanel();
         jButtonAdd2 = new javax.swing.JButton();
         jSpinnerQtd2 = new javax.swing.JSpinner();
@@ -90,6 +101,7 @@ public class TelaLoja extends javax.swing.JFrame {
         jTextAreaDescrica2 = new javax.swing.JTextArea();
         jLabel7 = new javax.swing.JLabel();
         jLabelTitulo2 = new javax.swing.JLabel();
+        jLabelPreço2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jButtonFinalizarPedido = new javax.swing.JButton();
         jComboBoxCategoria = new javax.swing.JComboBox<>();
@@ -102,6 +114,7 @@ public class TelaLoja extends javax.swing.JFrame {
 
         jPanelItem1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
+        jButtonAdd1.setBackground(new java.awt.Color(0, 204, 204));
         jButtonAdd1.setText("Adicionar");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -109,13 +122,21 @@ public class TelaLoja extends javax.swing.JFrame {
 
         jTextAreaDescrica1.setColumns(20);
         jTextAreaDescrica1.setRows(5);
+        jTextAreaDescrica1.setAutoscrolls(false);
         jScrollPane1.setViewportView(jTextAreaDescrica1);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setText("Descrição:");
 
         jLabelTitulo1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabelTitulo1.setText("jLabel9");
+        jLabelTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTitulo1.setText("Title 1");
+
+        jLabelPreço1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelPreço1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelPreço1.setText("Preço 1");
+
+        jLabelImagem1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanelItem1Layout = new javax.swing.GroupLayout(jPanelItem1);
         jPanelItem1.setLayout(jPanelItem1Layout);
@@ -126,31 +147,41 @@ public class TelaLoja extends javax.swing.JFrame {
                 .addGroup(jPanelItem1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelItem1Layout.createSequentialGroup()
                         .addGroup(jPanelItem1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanelItem1Layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelItem1Layout.createSequentialGroup()
-                        .addGap(0, 125, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanelItem1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelItem1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinnerQtd1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(4, 4, 4)
-                                .addComponent(jButtonAdd1)
-                                .addGap(28, 28, 28))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelItem1Layout.createSequentialGroup()
-                                .addComponent(jLabelTitulo1)
-                                .addGap(134, 134, 134))))))
+                            .addComponent(jLabelPreço1)
+                            .addGroup(jPanelItem1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelItem1Layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jSpinnerQtd1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(4, 4, 4)
+                                    .addComponent(jButtonAdd1)
+                                    .addGap(28, 28, 28))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelItem1Layout.createSequentialGroup()
+                                    .addComponent(jLabelTitulo1)
+                                    .addGap(144, 144, 144)))))))
+            .addGroup(jPanelItem1Layout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addComponent(jLabelImagem1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanelItem1Layout.setVerticalGroup(
             jPanelItem1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelItem1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelTitulo1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelImagem1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelPreço1)
+                .addGap(15, 15, 15)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -164,6 +195,7 @@ public class TelaLoja extends javax.swing.JFrame {
 
         jPanelItem3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
+        jButtonAdd3.setBackground(new java.awt.Color(0, 204, 204));
         jButtonAdd3.setText("Adicionar");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -177,7 +209,12 @@ public class TelaLoja extends javax.swing.JFrame {
         jLabel8.setText("Descrição:");
 
         jLabelTitulo3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabelTitulo3.setText("jLabel9");
+        jLabelTitulo3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTitulo3.setText("Title 3");
+
+        jLabelPreço3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelPreço3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelPreço3.setText("Preço 3");
 
         javax.swing.GroupLayout jPanelItem3Layout = new javax.swing.GroupLayout(jPanelItem3);
         jPanelItem3.setLayout(jPanelItem3Layout);
@@ -188,13 +225,11 @@ public class TelaLoja extends javax.swing.JFrame {
                 .addGroup(jPanelItem3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelItem3Layout.createSequentialGroup()
                         .addGroup(jPanelItem3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3)
-                            .addGroup(jPanelItem3Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelItem3Layout.createSequentialGroup()
-                        .addGap(0, 125, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanelItem3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelTitulo3)
                             .addGroup(jPanelItem3Layout.createSequentialGroup()
@@ -202,7 +237,8 @@ public class TelaLoja extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jSpinnerQtd3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonAdd3)))
+                                .addComponent(jButtonAdd3))
+                            .addComponent(jLabelPreço3))
                         .addGap(28, 28, 28))))
         );
         jPanelItem3Layout.setVerticalGroup(
@@ -210,7 +246,9 @@ public class TelaLoja extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelItem3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelTitulo3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
+                .addComponent(jLabelPreço3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -224,6 +262,7 @@ public class TelaLoja extends javax.swing.JFrame {
 
         jPanelItem2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
+        jButtonAdd2.setBackground(new java.awt.Color(0, 204, 204));
         jButtonAdd2.setText("Adicionar");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -237,7 +276,12 @@ public class TelaLoja extends javax.swing.JFrame {
         jLabel7.setText("Descrição:");
 
         jLabelTitulo2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabelTitulo2.setText("jLabel9");
+        jLabelTitulo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTitulo2.setText("Title 2");
+
+        jLabelPreço2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelPreço2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelPreço2.setText("Preço 2");
 
         javax.swing.GroupLayout jPanelItem2Layout = new javax.swing.GroupLayout(jPanelItem2);
         jPanelItem2.setLayout(jPanelItem2Layout);
@@ -248,13 +292,11 @@ public class TelaLoja extends javax.swing.JFrame {
                 .addGroup(jPanelItem2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelItem2Layout.createSequentialGroup()
                         .addGroup(jPanelItem2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2)
-                            .addGroup(jPanelItem2Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelItem2Layout.createSequentialGroup()
-                        .addGap(0, 126, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSpinnerQtd2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -263,7 +305,9 @@ public class TelaLoja extends javax.swing.JFrame {
                         .addGap(28, 28, 28))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelItem2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelTitulo2)
+                .addGroup(jPanelItem2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelPreço2)
+                    .addComponent(jLabelTitulo2))
                 .addGap(128, 128, 128))
         );
         jPanelItem2Layout.setVerticalGroup(
@@ -271,7 +315,9 @@ public class TelaLoja extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelItem2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelTitulo2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
+                .addComponent(jLabelPreço2)
+                .addGap(14, 14, 14)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -296,6 +342,7 @@ public class TelaLoja extends javax.swing.JFrame {
             }
         });
 
+        jButtonCarrinho.setBackground(new java.awt.Color(255, 255, 0));
         jButtonCarrinho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icons8-shopping-cart-32.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -317,14 +364,12 @@ public class TelaLoja extends javax.swing.JFrame {
                         .addComponent(jPanelItem1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(50, 50, 50)
                         .addComponent(jPanelItem2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanelItem3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22))
-                    .addComponent(jButtonCarrinho, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonFinalizarPedido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(jButtonFinalizarPedido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelItem3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonCarrinho, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32))
             .addGroup(layout.createSequentialGroup()
                 .addGap(393, 393, 393)
                 .addComponent(jLabel1)
@@ -336,20 +381,20 @@ public class TelaLoja extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jComboBoxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
                         .addGap(43, 43, 43)
-                        .addComponent(jPanelItem1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanelItem1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButtonCarrinho)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanelItem3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanelItem2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(jButtonFinalizarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -412,6 +457,10 @@ public class TelaLoja extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabelImagem1;
+    private javax.swing.JLabel jLabelPreço1;
+    private javax.swing.JLabel jLabelPreço2;
+    private javax.swing.JLabel jLabelPreço3;
     private javax.swing.JLabel jLabelTitulo1;
     private javax.swing.JLabel jLabelTitulo2;
     private javax.swing.JLabel jLabelTitulo3;
